@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo_list.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="text">
+    <h1>完了済み</h1>
+</div>
+
+{% for done in done_list %}
+
+{% if done.done == True %}
+<div class="content">
+    <h1><a href="{% url 'detail' done.id %}">{{ done.content }}</a></h1>
+    <p>{{ done.created_at }}</p>
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

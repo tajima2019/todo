@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo_list.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="text">
+    <h1 style="color:red">未完了</h1>
+</div>
+
+{% for notdone in notdone_list %}
+
+{% if notdone.done == False %}
+
+<div class="content">
+    <h1><a rel="stylesheet" href="{% url 'detail' notdone.id %}">{{ notdone.content }}</a></h1>
+    <p>{{ notdone.created_at }}</p>
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

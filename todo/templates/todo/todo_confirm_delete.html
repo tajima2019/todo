@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo_confirm_delete.css' %}">
+{% endblock %}
+{% block body %}
+<div class="body">
+<div class="confirm">
+    <h1>削除の確認</h1>
+    <p class="text text-danger">本当に削除してもよろしいでしょうか</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form }}
+    <button type="submit" class="btn btn-danger">削除</button>
+    <a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a>
+
+</form>
+</div>
+
+{% endblock %}

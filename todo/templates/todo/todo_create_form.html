@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo_create_form.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1>新規作成</h1>
+<form method="post">
+    {% csrf_token %}
+    <table class="table">
+        {{ form }}
+    </table>
+
+    <button type="submit" class="btn btn-primary">送信</button>
+    <a class="btn btn-dark" href="{% url 'list' %}">戻る</a>
+</form>
+{% endblock %}

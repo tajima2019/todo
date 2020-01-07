@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo_update_form.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h1>編集</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <button class="btn btn-primary" type="submit">保存</button>
+    </form>
+{% endblock %}
